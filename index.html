@@ -103,5 +103,25 @@ form dl dd {
 
 <img src="https://luvsci.github.io/earth-curve/curve-calculation.png">
 
+
+
+
+    <p> Click on the button to get the url parameters in the console. </p>
+  
+    <button onclick="getParameters()"> Get URL parameters </button>
+    <script>
+    function getParameters() {
+        let urlString = 
+"https://www.example.com/login.php?a=GeeksforGeeks&b=500&c=Hello Geeks";
+        let paramString = urlString.split('?')[1];
+        let queryString = new URLSearchParams(paramString);
+        for(let pair of queryString.entries()) {
+            console.log("Key is:" + pair[0]);
+            console.log("Value is:" + pair[1]);
+        }
+    }
+    </script>
+
+
 </body>
 </html>
