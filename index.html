@@ -96,6 +96,7 @@ form dl dd {
         var horizonD = document.getElementById('horizonD').value = Math.sqrt(eyeheight * eyeheight + 2 * radius * (eyeheight))/1000 ;
         var horizonE = document.getElementById('horizonE').value = (distanceF - horizonD);
         var hiddenX = document.getElementById('hiddenX').value = Math.sqrt(horizonE*1000 * horizonE*1000 + radius * radius) - radius ;
+
       }
 </script>
 
@@ -105,21 +106,42 @@ form dl dd {
 
 
 
+	<script type="text/javascript">
+	    // var url = document.location.toString();
+		// var urlParmStr = url.slice(url.indexOf('?')+1);
+		var urlParmStr = document.location.search.slice(+1)
+		var arr = urlParmStr.split('&');
+	    // arr=decodeURI(arr)
+		console.log(arr[0])
+		for(let i=0;i<arr.length;i++){
+			let g=arr[i]
+			console.log(g)
+		}
+		// Get to input box
+		var	input=document.querySelector('#b2');
+		function f2(){
+			var str=document.getElementById("b1").value;
+			// console.log(str)
+			var val;
+			arr.forEach(function(item,i){
+				{
+					let g=item.split('=');
+					if(g[0]==str){
+						val=g[1];
+						// console.log(val)
+					}
+				}
+			})
+			val=decodeURI(val)
+			input.value=val;
+		}
+	</script>
 
-    <p> Click on the button to get the url parameters in the console. </p>
-  
-    <button onclick="getParameters()"> Get URL parameters </button>
+
+
     <script>
-    function getParameters() {
-        let urlString = 
-"https://www.example.com/login.php?a=GeeksforGeeks&b=500&c=Hello Geeks";
-        let paramString = urlString.split('?')[1];
-        let queryString = new URLSearchParams(paramString);
-        for(let pair of queryString.entries()) {
-            console.log("Key is:" + pair[0]);
-            console.log("Value is:" + pair[1]);
-        }
-    }
+
+
     </script>
 
 
